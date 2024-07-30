@@ -1,0 +1,46 @@
+Macaulay2 runs natively on Mac or Linux.  It can be installed on windows by first installing "windows subsystem for linux" which provides a small virtual linux computer within your windows computer.
+
+Links for downloading + installation instructions
+    https://macaulay2.com/Downloads/
+Installation video for windows/linux
+    https://www.youtube.com/watch?v=m6GrNA49jDs
+For macs with an M1 chip, you may run into extra difficulties
+    See https://github.com/Macaulay2/homebrew-tap/wiki/M2-on-M1
+
+Macaulay2 can be run independently, but is most user-friendly when running within "emacs" which is a text editing program.
+Ensure that emacs is installed on your system using your package manager (analogously to how you installed Macaulay2).
+
+With M2, enter "setup()".  This configures emacs to work with Macaulay2.
+
+Workflow for M2 in emacs is to run a M2 window by hitting f12, then edit a file and send the lines to the M2 window by moving your cursor to the line and hitting f11.
+
+There are also differences between running it in-terminal versus with a graphical user interface.  The graphical user interface has some expected functionality (click to move your cursor, buttons for opening and saving files, etc.)
+
+Emacs has its own vast array of keyboard shortcuts.
+These are specified by C-(some key - usually a letter)) for pressing and holding the control key followed by the specified key, or by M-(some key) for holding the "meta key" - alt on windows keyboards, option on mac - followed by the specified key.
+The following "cheat sheet" provides a list of most-used shortcuts: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf 
+
+Some useful shortcuts:
+Previous/Next command entered into Macaulay2: M-p or M-n
+Halt a Macaulay2 computation: C-c C-c
+Back out of an emacs command in process (useful if you get stuck): C-x C-g
+
+Open a file (creating it if it doesn't exist): C-x C-f (then type the file name)
+Save a file: C-x C-s
+Close a file: C-x k
+
+Switch windows: C-x o
+"scroll" a frame between open files: C-x (left arrow/right arrow) 
+
+Copy/Paste:
+    Select text: Set mark with C-SPC (control-space). Move to end of region
+    Cut/Copy text: C-w for cut (copy and delete old text), M-w for copy
+    Paste: C-y
+
+For more details on M2 and emacs, see these pages:
+    https://macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/Macaulay2Doc/html/_using_sp__Macaulay2_spwith_spemacs.html
+
+Hw: 
+Install Macaulay2 and emacs on your system and configure them to work together.
+
+Open emacs, start M2 within it, open a file, write the line "2+2", and send it to M2 for evaluation.  Save the file.

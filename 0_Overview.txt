@@ -1,0 +1,53 @@
+Format: Brief intro, resource links, more detailed description, hw problems
+
+Installation and Emacs Configuration
+Link to installation tutorial
+Links to download page/emacs config pages
+
+Basic Computations
+Defining rings, ideals, modules
+Accessing information - vars, gens, numgens, mingens
+Resolutions
+	Hw: compute a resolution (Koszul complex?)
+
+Links to the lists and sequences page,
+mutable lists, hash tables, etc.
+	
+Conditionals and loops
+Links to pages
+
+Formatting of code, sequences of statements
+	   CamelCase for classes, camelCase for everything else
+	   Hw: Correct poorly formatted code
+	
+Mutable and immutable data types
+	Hw: time a simple operation doing appends vs assignments
+
+Functions
+	Create a function that does something
+
+Method functions, classes
+Introduce classes but only so that methods can be introducted
+	  Hw: Define a method function with optional arguments
+
+Packages and viewing source code
+	 Hw: Locate the local Macaulay2 installation on your computer
+
+Documentation
+	help, viewHelp, searching
+	
+Debugging
+Links to pages
+Explanation of error output
+List of basic commands - listLocalSymbols, continue, etc.
+     Hw: debug a file
+     	 errors: missing semicolon, close parenthesis, 
+
+Input/output, formatting data for saving and reading
+	      Hw: Write a polynomial to a file and then load it
+
+DGAlgebras package
+	   Caveats: working with multiple DGAlgebras is wonky
+
+
+
