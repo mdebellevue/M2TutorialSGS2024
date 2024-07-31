@@ -35,18 +35,33 @@ K = koszulComplexDGA(R) -- Can also be done on an ideal
 A = acyclicClosure(K, EndDegree=> 3)
 -- We often will need to refer to the underlying graded algebra of a DGAlgebra
 -- Conventionally denoted by the "natural" symbol from music
+-- We need the underlying algebra to use operations like "use", "substitute", "promote", "generators", etc
 A.natural
-
 
 -- The output does not make it clear which variables are of which degrees
 -- We can extract this information:
+partition(v -> degree v, generators A.natural)
 
+-- We can extract the differential
+A.diff
+-- To partition the differential by degrees to see it well
+partition(v -> degree v, flatten entries matrix A.diff)
 
+-- We can compute the homology algebra explicitly
+homologyAlgebra (A, GenDegreeLimit => 3,RelDegreeLimit=> 3)
+-- We can get cycles whose classes generatore homology
+getGenerators(K,DegreeLimit=>2,StartDegree=>2)
 
 -- Hw:
 -- 1. Locate the "DGAlgebras" package code installed on your computer. Open it with emacs.
 --    - How does the author create a new "DGAlgebra" type?
 --    - How does the author create ways of making instances of DGAlgebras?
 --    - Find an instance where the author installs a new method for DGAlgebras under an existing method function
+
 -- 2. Locate the code for a package relating to your interests.
 -- How does it approach performing some of the key computations relevant to your research interest?
+
+-- 3. Create a function which takes a dg algebra and outputs pairs (x, differential(x)) ranging over all the variables, partitioned by degree
+-- So the output will be a hash table {degree of x_1 => {(x_1, differential(x_1)), (x_2,..)}
+
+-- 4. 
