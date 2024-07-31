@@ -52,16 +52,28 @@ homologyAlgebra (A, GenDegreeLimit => 3,RelDegreeLimit=> 3)
 -- We can get cycles whose classes generatore homology
 getGenerators(K,DegreeLimit=>2,StartDegree=>2)
 
+-- We can get deviations up to a particular degree
+deviations(R,DegreeLimit=> 4)
+
+-- A dg algebra can be converted to a complex.
+-- When the dg algebra is infinite it is necessary to specify the highest degree to compute it to
+toComplex(K)
+toComplex(A,4)
+
 -- Hw:
--- 1. Locate the "DGAlgebras" package code installed on your computer. Open it with emacs.
+-- 1. Compute the deviations of the ring k[x,y]/(x^2,x*y) for a few fields k.
+--    Do they all seem to be dependent on the characteristic of the field?
+-- 2. Compute the deviations of the ring R = k[x,y,z]/ideal(x^2+2*x*y+z^2,z*x*y+y^3,z^3+2*x^2,z^4+2*x*z^3+y*z^3)
+--    Do they all seem to be dependent on the characteristic of the field?
+-- 3. Locate the "DGAlgebras" package code installed on your computer. Open it with emacs.
 --    - How does the author create a new "DGAlgebra" type?
 --    - How does the author create ways of making instances of DGAlgebras?
 --    - Find an instance where the author installs a new method for DGAlgebras under an existing method function
 
--- 2. Locate the code for a package relating to your interests.
+-- 4. Locate the code for a package relating to your interests.
 -- How does it approach performing some of the key computations relevant to your research interest?
 
--- 3. Create a function which takes a dg algebra and outputs pairs (x, differential(x)) ranging over all the variables, partitioned by degree
+-- 5. Create a function which takes a dg algebra and outputs pairs (x, differential(x)) ranging over all the variables, partitioned by degree
 -- So the output will be a hash table {degree of x_1 => {(x_1, differential(x_1)), (x_2,..)}
 
--- 4. 
+

@@ -85,9 +85,11 @@ delete(a,L)
 -- Remove the value at index "n"
 drop(L,{n,n})
 -- Searching:
+-- Get list of all entries satisfying a condition
 -- Here "f" is a function returning "true" or "false"
 -- get all even numbers
 select(L, even)
+-- Get indices of all entries satisfying a condition
 -- get the indices of all even numbers
 positions(L,even)
 
