@@ -58,7 +58,7 @@ Some useful shortcuts (Credit: Mahrud Sayrafi, edited by me)
 | C-g C-g C-g | Panic button for aborting a command in process
 | C-x 2       | split current window horizontally into two windows
 | C-x 3       | split current window vertically into two windows
-| C-x 0       | merge split windows
+| C-x 0       | merge split windows (i.e., close one of them)
 
 Hw: 
 Install Macaulay2 and emacs on your system and configure them to work together.

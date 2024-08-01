@@ -45,12 +45,16 @@ f = method()
 f ZZ := x -> x+1
 -- Optional arguments can be included with default values throughout
 -- An option table is a hash table
-g = method(Options => {Slope => 2, Intercept => 4}
+g = method(Options => {Slope => 2, Intercept => 4})
 -- The construction is a function which takes an option table as input and returns the method function as output
 -- "opts" is an arbitrary variable name
 g ZZ := opts -> x -> opts.Slope*x+opts.Intercept
 -- Options are changed by adding hash table keys to the list of arguments
 g(3, Slope => 4, Intercept => 0)
+-- Every installed method requires an option table, even if you don't do anything with it
+-- Ommitting "opts" below would result in a cryptic error message
+g Ring := opts -> R -> print("I can't do anything with a ring")
+
 -- Optional arguments can be added to a method with default values set for each installed method
 -- (rather than being global across all methods)
 h = method()
