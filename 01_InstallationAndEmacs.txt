@@ -7,40 +7,60 @@ Installation video for windows/linux
 For macs with an M1 chip, you may run into extra difficulties
     See https://github.com/Macaulay2/homebrew-tap/wiki/M2-on-M1
 
-Macaulay2 can be run independently, but is most user-friendly when running within "emacs" which is a text editing program.
+Macaulay2 can be run independently within terminal.
+You can write code in a separate document and paste it into the terminal and record the result.
+This is somewhat clunky, but works fine.
+
+A more user-friendly way to use Macaulay2 is to run it within within "emacs" which is a text editing program.
 Ensure that emacs is installed on your system using your package manager (analogously to how you installed Macaulay2).
 
 With M2, enter "setup()".  This configures emacs to work with Macaulay2.
+A file ".emacs-Macaulay2" is placed in your main user directory.
 
 Workflow for M2 in emacs is to run a M2 window by hitting f12, then edit a file and send the lines to the M2 window by moving your cursor to the line and hitting f11.
 
-There are also differences between running it in-terminal versus with a graphical user interface.  The graphical user interface has some expected functionality (click to move your cursor, buttons for opening and saving files, etc.)
+If f11 doesn't work, try f9.  If that still doesn't work, open the file ".emacs-Macaulay2" in your main user directory with any text editor.
+Add the following line (anywhere within the file)
 
-Emacs has its own vast array of keyboard shortcuts.
+(global-set-key [ f11 ] 'M2-send-to-program)
+
+You can replace f11 with something else if it still doesn't work, like
+
+(global-set-key [ f9 ] 'M2-send-to-program)
+
+Emacs can be run in graphical user interface mode (gui) or within the terminal.
+The graphical user interface has some expected functionality (click to move your cursor, buttons for opening and saving files, etc.)
+The terminal mode made be the only thing available, particularly if you're using WSL.
+
+Emacs has its own vast array of keyboard shortcuts (especially important in terminal mode)
 These are specified by C-(some key - usually a letter)) for pressing and holding the control key followed by the specified key, or by M-(some key) for holding the "meta key" - alt on windows keyboards, option on mac - followed by the specified key.
 The following "cheat sheet" provides a list of most-used shortcuts: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf 
 
-Some useful shortcuts:
-Previous/Next command entered into Macaulay2: M-p or M-n
-Halt a Macaulay2 computation: C-c C-c
-Back out of an emacs command in process (useful if you get stuck): C-x C-g
-
-Open a file (creating it if it doesn't exist): C-x C-f (then type the file name)
-Save a file: C-x C-s
-Close a file: C-x k
-
-Switch windows: C-x o
-"scroll" a frame between open files: C-x (left arrow/right arrow) 
-
-Copy/Paste:
-    Select text: Set mark with C-SPC (control-space). Move to end of region
-    Cut/Copy text: C-w for cut (copy and delete old text), M-w for copy
-    Paste: C-y
-
-For more details on M2 and emacs, see these pages:
-    https://macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/Macaulay2Doc/html/_using_sp__Macaulay2_spwith_spemacs.html
+Some useful shortcuts (Credit: Mahrud Sayrafi, edited by me)
+| Shortcut                                | Action, Explanation/Notes
++-----------------------------------------+------------------------------------------------------------------------
+| F12                                     | open M2 in a buffer. A buffer is a view of a file, the M2 terminal, etc.
+| F11 (F9 on mac)                         | send line/highlighted block to M2
+| C-c C-c                                 | Halt a Macaulay2 computation. C-c halts if running in terminal. C-c for halt is an old terminal command.
+| M-p/M-n                                 | Previous/Next Macaulay2 command. Need to be at the lowest line of the M2 buffer
+| C-x C-f (type filename)                 | open file. f is for file.  Creates it if empty
+| C-x C-s                                 | save current file. s is for save
+| C-x k                                   | close current buffer. k is for kill.  A buffer is a view of a file, the M2 terminal, etc.
+| C-Space                                 | Set beginning of highlighted region. selected text can be sent to M2 or copied, cut for pasting elsewhere
+| C-w | cut text                          | w is for whipe (away).
+|     |                                   | Removes selected text and places into the clipboard for pasting elsewhere.
+| M-w | copy text                         | Places a copy of text into the clipboard for pasting elsewhere
+| C-y | paste text from clipboard         | y is for "yank" (the text from the clipboard
+| C-x o | switch between two open windows | o is for "other"
+| C-x <left/right arrow>                  | change buffer viewed by current window
+| C-Shift _                               | undo
++-------------+---------------------------+--------------------------------------
+| C-g C-g C-g | Panic button for aborting a command in process
+| C-x 2       | split current window horizontally into two windows
+| C-x 3       | split current window vertically into two windows
+| C-x 0       | merge split windows
 
 Hw: 
 Install Macaulay2 and emacs on your system and configure them to work together.
 
-Open emacs, start M2 within it, open a file, write the line "2+2", and send it to M2 for evaluation.  Save the file.
+Open emacs, start M2 within it, open a file named "MyFirstM2Session.m2", write the line "2+2", and send it to M2 for evaluation.  Save the file.
